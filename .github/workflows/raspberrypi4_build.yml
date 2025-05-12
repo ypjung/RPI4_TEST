@@ -13,11 +13,13 @@ jobs:
   steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+
     - name: Clone Yocto sources
       run: |
         git clone -b kirkstone https://git.yoctoproject.org/poky
         git clone -b kirkstone https://github.com/openembedded/meta-openembedded.git
         git clone -b kirkstone https://github.com/agherzan/meta-raspberrypi.git
+
     - name: Setup Yocto build
       run: |
         source poky/oe-init-build-env build
@@ -25,10 +27,12 @@ jobs:
         bitbake-layers add-layer ../meta-raspberrypi
         echo 'MACHINE = "raspberrypi4"' >> conf/local.conf
         echo 'IMAGE_FSTYPES = "wic"' >> conf/local.conf
+
     - name: Build image
       run: |
         source poky/oe-init-build-env build
         bitbake core-image-minimal
+
     - name: Upload image artifact
       uses: actions/upload-artifact@v4
       with:
