@@ -22,16 +22,16 @@ jobs:
 
     - name: Setup Yocto build
       run: |
-      	source poky/oe-init-build-env build
-      	bitbake-layers add-layer ../meta-openembedded/meta-oe
-      	bitbake-layers add-layer ../meta-raspberrypi
-      	echo 'MACHINE = "raspberrypi4"' >> conf/local.conf
-      	echo 'IMAGE_FSTYPES = "wic"' >> conf/local.conf
+        source poky/oe-init-build-env build
+        bitbake-layers add-layer ../meta-openembedded/meta-oe
+        bitbake-layers add-layer ../meta-raspberrypi
+        echo 'MACHINE = "raspberrypi4"' >> conf/local.conf
+       echo 'IMAGE_FSTYPES = "wic"' >> conf/local.conf
 
     - name: Build image
       run: |
-      	source poky/oe-init-build-env build
-      	bitbake core-image-minimal
+        source poky/oe-init-build-env build
+        bitbake core-image-minimal
 
     - name: Upload image artifact
       uses: actions/upload-artifact@v4
