@@ -36,5 +36,5 @@ jobs:
     - name: Upload image artifact
       uses: actions/upload-artifact@v4
       with:
-      name: raspberrypi4-wic
-        path:build/tmp/deploy/images/raspberrypi4/*.wic
+        name: raspberrypi4-wic
+        path: build/tmp/deploy/images/raspberrypi4/*.wic
