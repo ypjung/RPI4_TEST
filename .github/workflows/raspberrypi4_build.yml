@@ -1,6 +1,5 @@
 name: Raspberry Pi 4 Yocto Build
 
-
 on:
   push:
     branches:
