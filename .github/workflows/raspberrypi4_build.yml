@@ -3,7 +3,8 @@ name: Raspberry Pi 4 Yocto Build
 on:
   push:
 	branches:
-    - main
+      - main
+      - master
 
 jobs:
   build:
